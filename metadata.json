@@ -1,0 +1,6 @@
+{
+  "name": "DEVMON",
+  "description": "A classic retro-style tech RPG overworld and quiz battle game optimized for mobile web gaming.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
