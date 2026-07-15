@@ -609,7 +609,28 @@ export const BattleScreen: React.FC = () => {
     const question = bucket[Math.floor(Math.random() * bucket.length)];
 
     askedSet.add(question.q);
-    setActiveQuestion(question);
+
+    // Randomize/shuffle options so that the correct answer is not always in the same position
+    const mappedOpts = question.opts.map((opt: string, originalIndex: number) => ({
+      opt,
+      isCorrect: originalIndex === question.a
+    }));
+
+    // Fisher-Yates shuffle
+    for (let i = mappedOpts.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = mappedOpts[i];
+      mappedOpts[i] = mappedOpts[j];
+      mappedOpts[j] = temp;
+    }
+
+    const shuffledQuestion = {
+      ...question,
+      opts: mappedOpts.map((o: any) => o.opt),
+      a: mappedOpts.findIndex((o: any) => o.isCorrect)
+    };
+
+    setActiveQuestion(shuffledQuestion);
     setViewState("quiz");
     setSelectedOpt(null);
     setRevealingAnswer(false);
