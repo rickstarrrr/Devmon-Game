@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/Devmon-Game/'
+    base: '/Devmon-Game/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
