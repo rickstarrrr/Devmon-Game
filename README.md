@@ -5,4 +5,3 @@
 # Play
 [Play the game here](https://rickstarrrr.github.io/Devmon-Game/)
 
-
